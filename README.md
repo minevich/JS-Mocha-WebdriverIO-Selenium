@@ -8,32 +8,24 @@ export SAUCE_USERNAME=<SAUCE_USERNAME>
 export SAUCE_ACCESS_KEY=<SAUCE_ACCESS_KEY>
 ```
 
-## 2/ Install tools
+## 2/ Install local packages and tools
 
-```
-npm install -g grunt-cli
-```
-
-## 3/ Install local package
-
-In this tutorial directory (there should be a `package.json` file) run:
+In this sample directory (there should be a `package.json` file) run:
 
 ```
 npm install
 ```
 
-## 4/ Inspect the code
+## 3/ Inspect the code
 
 - The browsers are configured in `desireds.js`
-- The mocha test suite is in `tutorial-specs.js`
-- The parallel runner is in `Makefile`
+- The mocha test suites is in `tests/` folder
+- The parallel runner is in `Gruntfile.js`
 
-Go [here](https://saucelabs.com/tests) to view the tests.
+Go [Sauce Labs Dashboard](https://saucelabs.com/beta/dashboard/tests) to view the tests.
 
-## 5/ Run tests in parallel
+## 4/ Run tests in parallel
 
 ```
-grunt
+npm test
 ```
-
-Go [here](https://saucelabs.com/tests) to view the tests.

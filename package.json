@@ -1,15 +1,23 @@
 {
   "name": "mocha-webdriverio",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Parallel tests with Mocha and Webdriverio  =============",
   "main": "",
-  "devDependencies": {
+  "repository" :
+  { "type" : "git"
+  , "url" : "git@github.com:saucelabs-sample-test-frameworks/JS-Mocha-WebdriverIO.git"
+  },
+  "scripts": { 
+    "test": "./node_modules/grunt-cli/bin/grunt" 
+    },
+  "dependencies": {
     "webdriverio": "*",
     "chai-as-promised": "*",
     "colors": "*",
     "grunt": "^0.4.5",
     "grunt-parallel": "^0.4.1",
     "grunt-shell": "^1.1.2",
+    "grunt-cli": "^0.1.13",
     "lodash": "*",
     "chai": "*",
     "parallel-mocha": "*",
