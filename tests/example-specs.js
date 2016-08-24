@@ -74,14 +74,20 @@ describe('   mocha spec examples (' + desired.browserName + ')', function() {
         allPassed = allPassed && (this.currentTest.state === 'passed')
 
         // update sauce labs job
+        saucelabs.updateJob(client.requestHandler.sessionID, { name: name, passed: allPassed }, function() {});
+        console.log("SauceOnDemandSessionID=" + client.requestHandler.sessionID +" job-name=" + this.test.fullTitle());
         client.end(done);
-        // saucelabs.updateJob(client.requestHandler.sessionID, { name: name, passed: allPassed }, function() {});
-        // console.log("SauceOnDemandSessionID=" + client.requestHandler.sessionID +" job-name=" + this.test.fullTitle());
     });
 
   it("should get guinea pig page 1", function(done) {
     name = this.test.fullTitle();
-    done();
+    client
+      .getTitle()
+      .should
+      .eventually
+      .be
+      .equal("I am a page title - Sauce Labs")
+      .and.notify(done);
   });
 
 });
