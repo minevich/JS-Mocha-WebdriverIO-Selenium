@@ -7,8 +7,8 @@
   { "type" : "git"
   , "url" : "git@github.com:saucelabs-sample-test-frameworks/JS-Mocha-WebdriverIO.git"
   },
-  "scripts": { 
-    "test": "./node_modules/grunt-cli/bin/grunt" 
+  "scripts": {
+    "test": "./node_modules/grunt-cli/bin/grunt"
     },
   "dependencies": {
     "webdriverio": "*",
@@ -22,6 +22,7 @@
     "chai": "*",
     "parallel-mocha": "*",
     "mocha": "*",
-    "saucelabs": "*"
+    "saucelabs": "*",
+    "extend": "*"
   }
 }

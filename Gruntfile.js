@@ -6,7 +6,7 @@ module.exports = function (grunt) {
       shell: {
         runTests: {
             command: function(browser) {
-              return 'BROWSER='+browser+' ./node_modules/.bin/parallel-mocha tests/*-specs.js'
+              return 'DEVICE='+browser+' ./node_modules/.bin/parallel-mocha tests/*-specs.js'
             }
         }
       },
@@ -16,7 +16,7 @@ module.exports = function (grunt) {
             options: {
                 grunt: true
             },
-            tasks: ['run_firefox', 'run_chrome', 'run_internet_explorer']
+            tasks: ['run_s4']
         }
       }
     });
@@ -28,7 +28,5 @@ module.exports = function (grunt) {
     // register tasks
     grunt.registerTask('default', ['parallel']);
 
-    grunt.registerTask('run_firefox', ['shell:runTests:firefox']);
-    grunt.registerTask('run_chrome', ['shell:runTests:chrome']);
-    grunt.registerTask('run_internet_explorer', ['shell:runTests:internet_explorer']);
+    grunt.registerTask('run_s4', ['shell:runTests:s4']);
 };

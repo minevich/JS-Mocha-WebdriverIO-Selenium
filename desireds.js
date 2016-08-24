@@ -1,5 +1,12 @@
 module.exports = {
-  firefox: {browserName: 'firefox', platform: 'Windows 10', version: '41.0'},
-  chrome: {browserName: 'chrome', platform: 'OS X 10.10', version: '45.0'},
-  internet_explorer: {browserName: 'internet explorer', platform: 'Windows 7', version: '10'}
+    s4: {
+        browserName: '',
+        appiumVersion: '1.4.16',
+        deviceName: 'Samsung Galaxy S4 Emulator',
+        deviceOrientation: 'portrait',
+        platformVersion: '4.4',
+        platformName: 'Android',
+        app: 'https://github.com/appium/sample-code/blob/master/sample-code/apps/ApiDemos/bin/ApiDemos-debug.apk?raw=true',
+        commandTimeout: 300
+    }
 };
