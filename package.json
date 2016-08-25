@@ -19,7 +19,6 @@
     "grunt-shell": "^1.1.2",
     "grunt-cli": "^0.1.13",
     "lodash": "*",
-    "chai": "*",
     "parallel-mocha": "*",
     "mocha": "*",
     "saucelabs": "*",
