@@ -51,68 +51,76 @@ chai.use(chaiAsPromised);
 desired.name = 'example with ' + browserKey;
 desired.tags = ['tutorial'];
 
-describe('   mocha spec examples (' + desired.browserName + ')', function() {
+describe('mocha spec examples (' + desired.browserName + ')', function() {
     var client = {},
         allPassed = true,
         name = "";
 
     this.timeout(60000);
 
-    after(function(done) {
-        done();
-    });
 
-    beforeEach(function(done) {
+    beforeEach(function() {
         client = webdriverio.remote(sauceConfig);
-
-        chaiAsPromised.transferPromiseness = client.transferPromiseness;
-        client.init(done);
+        return client.init();
     });
 
-    afterEach(function(done, res) {
+    afterEach(function() {
         allPassed = allPassed && (this.currentTest.state === 'passed')
 
         // update sauce labs job
         saucelabs.updateJob(client.requestHandler.sessionID, { name: name, passed: allPassed }, function() {});
-        console.log("SauceOnDemandSessionID=" + client.requestHandler.sessionID +" job-name=" + this.test.fullTitle());
-        client.end(done);
+
+        console.log("SauceOnDemandSessionID=" + client.requestHandler.sessionID +" job-name=" + name);
+
+        return client.end();
     });
 
-  it("should get guinea pig page 1", function(done) {
+  it("should get guinea pig page 1", function() {
     name = this.test.fullTitle();
-    client
+
+    return client
       .url("https://saucelabs.com/test/guinea-pig")
       .getTitle()
       .should
       .eventually
       .be
-      .equal("I am a page title - Sauce Labs")
-      .and.notify(done);
+      .equal("I am a page title - Sauce Labs");
   });
 
+  it("should get guinea pig page 1", function() {
+    name = this.test.fullTitle();
 
-  it("should get guinea pig page 2", function(done) {
-    name = this.test.fullTitle();
-    client
+    return client
       .url("https://saucelabs.com/test/guinea-pig")
       .getTitle()
       .should
       .eventually
       .be
-      .equal("I am a page title - Sauce Labs")
-      .and.notify(done);
+      .equal("I am a page title - Sauce Labs");
   });
-  
-   it("should get guinea pig page 3", function(done) {
+
+  it("should get guinea pig page 2", function() {
     name = this.test.fullTitle();
-    client
+
+    return client
       .url("https://saucelabs.com/test/guinea-pig")
       .getTitle()
       .should
       .eventually
       .be
-      .equal("I am a page title - Sauce Labs")
-      .and.notify(done);
+      .equal("I am a page title - Sauce Labs");
+  });
+
+  it("should get guinea pig page 3", function() {
+    name = this.test.fullTitle();
+
+    return client
+      .url("https://saucelabs.com/test/guinea-pig")
+      .getTitle()
+      .should
+      .eventually
+      .be
+      .equal("I am a page title - Sauce Labs");
   });
 
 });
