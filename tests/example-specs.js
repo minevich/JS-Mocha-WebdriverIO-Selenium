@@ -87,18 +87,6 @@ describe('mocha spec examples (' + desired.browserName + ')', function() {
       .equal("I am a page title - Sauce Labs");
   });
 
-  it("should get guinea pig page 1", function() {
-    name = this.test.fullTitle();
-
-    return client
-      .url("https://saucelabs.com/test/guinea-pig")
-      .getTitle()
-      .should
-      .eventually
-      .be
-      .equal("I am a page title - Sauce Labs");
-  });
-
   it("should get guinea pig page 2", function() {
     name = this.test.fullTitle();
 
